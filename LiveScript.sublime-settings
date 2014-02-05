@@ -1,6 +1,0 @@
-{
-    // Path to livescript.  Defaults to sublime's path
-    "livescript_path": "",
-    // The actual binary.
-    "livescript_bin": ""
-}
