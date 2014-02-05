@@ -11,18 +11,86 @@
 	<key>patterns</key>
 	<array>
 		<dict>
-			<key>comment</key>
-			<string>Single line comment.</string>
-			<key>match</key>
-			<string>#.*$</string>
-			<key>name</key>
-			<string>comment.line.number-sign.LiveScript</string>
-		</dict>
-		<dict>
 			<key>match</key>
 			<string>\b(true|false)\b</string>
 			<key>name</key>
-			<string>constant.language.c</string>
+			<string>constant.language._</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function._</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>([_A-Za-z][_A-Za-z0-9]+)(?=\(.*\)\s*->)</string>
+			<key>name</key>
+			<string>function._</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>support.function.any-method._</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>([_A-Za-z][_A-Za-z0-9]+)\(</string>
+			<key>name</key>
+			<string>function-call._</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>"</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin._</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>"</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end._</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.double._</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>'</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin._</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>'</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end._</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.single.double._</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -36,6 +104,10 @@
 			<key>include</key>
 			<string>#operators</string>
 		</dict>
+		<dict>
+			<key>include</key>
+			<string>#line_comment</string>
+		</dict>
 	</array>
 	<key>repository</key>
 	<dict>
@@ -45,7 +117,7 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>\b(const|import|let|mut|for|in)\b</string>
+					<string>\b(const|import|let|mut|for|in|do|foreign|as)\b</string>
 					<key>name</key>
 					<string>keyword._</string>
 				</dict>
@@ -82,12 +154,49 @@
 							<string>keyword.operator._</string>
 						</dict>
 					</dict>
-					<key>comment</key>
-					<string>Assignment operators.</string>
 					<key>match</key>
-					<string>(=|\+=)</string>
+					<string>(=|\+=|-=|->|\+|-|:|&amp;|^)</string>
 					<key>name</key>
 					<string>assignment.operators._</string>
+				</dict>
+			</array>
+		</dict>
+		<key>line_comment</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>comment.line.number-sign._</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.comment._</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>^((#).*$\n?)</string>
+					<key>name</key>
+					<string>meta.comment.full-line._</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.comment._</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(#).*$\n?</string>
+					<key>name</key>
+					<string>comment.line.number-sign._</string>
 				</dict>
 			</array>
 		</dict>
