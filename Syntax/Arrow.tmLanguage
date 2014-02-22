@@ -192,6 +192,8 @@
 						bool|
 						(u?int(8|16|32|64|128)?)|
 						float(16|32|64|128)?|
+						str|
+						char
 						)\b
 					</string>
 					<key>name</key>
