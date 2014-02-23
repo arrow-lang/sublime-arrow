@@ -179,7 +179,11 @@
 						public|
 						private|
 						class|
-						unsafe
+						unsafe|
+						while|
+						loop|
+						continue|
+						break
 						)\b
 					</string>
 					<key>name</key>
@@ -254,6 +258,7 @@
 						&lt;=|
 						&gt;|
 						&lt;|
+						\^|
 						/)
 					</string>
 					<key>name</key>
@@ -282,7 +287,7 @@
 					<key>match</key>
 					<string>^((#).*$\n?)</string>
 					<key>name</key>
-					<string>meta._omment.full-line._</string>
+					<string>meta.comment.full-line._</string>
 				</dict>
 				<dict>
 					<key>captures</key>
