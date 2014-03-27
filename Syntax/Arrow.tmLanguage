@@ -26,21 +26,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>([_A-Za-z][_A-Za-z0-9]+)(?=\(.*\)\s*-&gt;)</string>
-			<key>name</key>
-			<string>function.arrow</string>
-		</dict>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.function.arrow</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>([_A-Za-z][_A-Za-z0-9]*)(?=\s+-&gt;)</string>
+			<string>(?&lt;=(?:def\s))([_A-Za-z][_A-Za-z0-9]+)</string>
 			<key>name</key>
 			<string>function.arrow</string>
 		</dict>
@@ -195,9 +181,9 @@
        not|
        if|
        else|
+       def|
        use|
        public|
-       def|
        private|
        type|
        enum|
@@ -236,16 +222,10 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>(?x)
-						\b(
-						(0[bB][0-1]+)|
-						(0[oO][0-7]+)|
-						(0[xX][A-Fa-f0-9]+)|
-						([0-9]+\.[0-9]+([Ee][-+]?[0-9]+)?)|
-						([0-9]+([Ee][-+]?[0-9]+)?)|
-						([0-9]+)
-						)\b
-					</string>
+					<string>(?x)\b((0[bB][0-1]+)|(0[oO][0-7]+)|
+       (0[xX][A-Fa-f0-9]+)|([0-9]+\.[0-9]+([Ee][-+]?[0-9]+)?)|
+       ([0-9]+([Ee][-+]?[0-9]+)?)|([0-9]+))\b
+</string>
 					<key>name</key>
 					<string>constant.numeric.arrow</string>
 				</dict>
@@ -265,33 +245,30 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(?x)
-						(
-						=|
-						\+=|
-						-=|
-						-&gt;|
-						\+|
-						-|
-						:|
-						&amp;|
-						^|
-						%|
-						\*|
-						==|
-						&gt;=|
-						&lt;=|
-						&gt;|
-						&lt;|
-						\^|
-						\)|
-						\(|
-						;|
-						,|
-						\{|
-						\}|
-						/)
-					</string>
+					<string>(?x)(=|
+    \+=|
+    -=|
+    -&gt;|
+    \+|
+    -|
+    :|
+    &amp;|
+    ^|
+    %|
+    \*|
+    ==|
+    &gt;=|
+    &lt;=|
+    &gt;|
+    &lt;|
+    \^|
+    \)|
+    \(|
+    ;|
+    ,|
+    \{|
+    \}|)
+</string>
 					<key>name</key>
 					<string>assignment.operators.arrow</string>
 				</dict>

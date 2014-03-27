@@ -7,12 +7,7 @@ patterns:
 - captures:
     '1':
       name: entity.name.function.arrow
-  match: ([_A-Za-z][_A-Za-z0-9]+)(?=\(.*\)\s*->)
-  name: function.arrow
-- captures:
-    '1':
-      name: entity.name.function.arrow
-  match: ([_A-Za-z][_A-Za-z0-9]*)(?=\s+->)
+  match: (?<=(?:def\s))([_A-Za-z][_A-Za-z0-9]+)
   name: function.arrow
 - captures:
     '1':
@@ -69,6 +64,7 @@ repository:
                not|
                if|
                else|
+               def|
                use|
                public|
                private|
@@ -86,14 +82,14 @@ repository:
                return|
                implement|
                module)\b
-      name: keyword.arrow
+      name: 'keyword.arrow'
     - match: >
         (?x)\b(bool|
                (u?int(8|16|32|64|128)?)|
                float(16|32|64|128)|
                str|
                char)\b
-      name: storage.type.arrow
+      name: 'storage.type.arrow'
   comments:
     begin: '#'
     beginCaptures:
@@ -103,22 +99,40 @@ repository:
     name: 'comment.line.arrow'
   numeric:
     patterns:
-    - match: "(?x)\n\t\t\t\t\t\t\\b(\n\t\t\t\t\t\t(0[bB][0-1]+)|\n\t\t\t\t\t\t(0[oO][0-7]+)|\n\
-        \t\t\t\t\t\t(0[xX][A-Fa-f0-9]+)|\n\t\t\t\t\t\t([0-9]+\\.[0-9]+([Ee][-+]?[0-9]+)?)|\n\
-        \t\t\t\t\t\t([0-9]+([Ee][-+]?[0-9]+)?)|\n\t\t\t\t\t\t([0-9]+)\n\t\t\t\t\t\t\
-        )\\b\n\t\t\t\t\t"
-      name: constant.numeric.arrow
+    - match: >
+        (?x)\b((0[bB][0-1]+)|(0[oO][0-7]+)|
+               (0[xX][A-Fa-f0-9]+)|([0-9]+\.[0-9]+([Ee][-+]?[0-9]+)?)|
+               ([0-9]+([Ee][-+]?[0-9]+)?)|([0-9]+))\b
+      name: 'constant.numeric.arrow'
   operators:
     patterns:
     - captures:
         '0':
-          name: keyword.operator.arrow
-      match: "(?x)\n\t\t\t\t\t\t(\n\t\t\t\t\t\t=|\n\t\t\t\t\t\t\\+=|\n\t\t\t\t\t\t\
-        -=|\n\t\t\t\t\t\t->|\n\t\t\t\t\t\t\\+|\n\t\t\t\t\t\t-|\n\t\t\t\t\t\t:|\n\t\
-        \t\t\t\t\t&|\n\t\t\t\t\t\t^|\n\t\t\t\t\t\t%|\n\t\t\t\t\t\t\\*|\n\t\t\t\t\t\
-        \t==|\n\t\t\t\t\t\t>=|\n\t\t\t\t\t\t<=|\n\t\t\t\t\t\t>|\n\t\t\t\t\t\t<|\n\t\
-        \t\t\t\t\t\\^|\n\t\t\t\t\t\t\\)|\n\t\t\t\t\t\t\\(|\n\t\t\t\t\t\t;|\n\t\t\t\
-        \t\t\t,|\n\t\t\t\t\t\t\\{|\n\t\t\t\t\t\t\\}|\n\t\t\t\t\t\t/)\n\t\t\t\t\t"
+          name: 'keyword.operator.arrow'
+      match: >
+        (?x)(=|
+            \+=|
+            -=|
+            ->|
+            \+|
+            -|
+            :|
+            &|
+            ^|
+            %|
+            \*|
+            ==|
+            >=|
+            <=|
+            >|
+            <|
+            \^|
+            \)|
+            \(|
+            ;|
+            ,|
+            \{|
+            \}|)
       name: assignment.operators.arrow
   string_escaped_char:
     patterns:
