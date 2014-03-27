@@ -7,7 +7,7 @@ patterns:
 - captures:
     '1':
       name: entity.name.function.arrow
-  match: (?<=(?:def\s))([_A-Za-z][_A-Za-z0-9]+)
+  match: (?<=(?:def\s))([_A-Za-z][_A-Za-z0-9]*)
   name: function.arrow
 - captures:
     '1':

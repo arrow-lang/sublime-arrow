@@ -26,7 +26,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(?&lt;=(?:def\s))([_A-Za-z][_A-Za-z0-9]+)</string>
+			<string>(?&lt;=(?:def\s))([_A-Za-z][_A-Za-z0-9]*)</string>
 			<key>name</key>
 			<string>function.arrow</string>
 		</dict>
