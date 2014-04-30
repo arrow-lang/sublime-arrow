@@ -44,6 +44,20 @@ patterns:
   - include: '#string_escaped_char'
 - match: \@([_A-Za-z][_A-Za-z0-9]*)(?=\()
   name: meta.function.decorator.arrow
+- match: (?<=(struct ))([_A-Za-z][_A-Za-z0-9]*)
+  name: entity.name.type.struct.arrow
+- match: \b(struct)\b
+  name: storage.type.struct.arrow
+- match: (?<=(enum ))([_A-Za-z][_A-Za-z0-9]*)
+  name: entity.name.type.enum.arrow
+- match: \b(enum)\b
+  name: storage.type.enum.arrow
+- match: (?<=(trait ))([_A-Za-z][_A-Za-z0-9]*)
+  name: entity.name.type.trait.arrow
+- match: \b(trait)\b
+  name: storage.type.trait.arrow
+- match: \b(def)\b
+  name: storage.type.function.arrow
 - include: '#numeric'
 - include: '#operators'
 - include: '#comments'
@@ -64,18 +78,15 @@ repository:
                not|
                if|
                else|
-               def|
                use|
                public|
                private|
                type|
-               struct|
-               enum|
                match|
                static|
-               trait|
                unsafe|
                while|
+               macro|
                loop|
                global|
                self|
@@ -93,7 +104,7 @@ repository:
                float(16|32|64|128)|
                str|
                char)\b
-      name: 'storage.type.arrow'
+      name: 'support.type.arrow'
   comments:
     begin: '#'
     beginCaptures:

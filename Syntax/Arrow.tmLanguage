@@ -131,6 +131,48 @@
 			<string>meta.function.decorator.arrow</string>
 		</dict>
 		<dict>
+			<key>match</key>
+			<string>(?&lt;=(struct ))([_A-Za-z][_A-Za-z0-9]*)</string>
+			<key>name</key>
+			<string>entity.name.type.struct.arrow</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(struct)\b</string>
+			<key>name</key>
+			<string>storage.type.struct.arrow</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?&lt;=(enum ))([_A-Za-z][_A-Za-z0-9]*)</string>
+			<key>name</key>
+			<string>entity.name.type.enum.arrow</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(enum)\b</string>
+			<key>name</key>
+			<string>storage.type.enum.arrow</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?&lt;=(trait ))([_A-Za-z][_A-Za-z0-9]*)</string>
+			<key>name</key>
+			<string>entity.name.type.trait.arrow</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(trait)\b</string>
+			<key>name</key>
+			<string>storage.type.trait.arrow</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(def)\b</string>
+			<key>name</key>
+			<string>storage.type.function.arrow</string>
+		</dict>
+		<dict>
 			<key>include</key>
 			<string>#numeric</string>
 		</dict>
@@ -181,18 +223,15 @@
        not|
        if|
        else|
-       def|
        use|
        public|
        private|
        type|
-       struct|
-       enum|
        match|
        static|
-       trait|
        unsafe|
        while|
+       macro|
        loop|
        global|
        self|
@@ -216,7 +255,7 @@
        char)\b
 </string>
 					<key>name</key>
-					<string>storage.type.arrow</string>
+					<string>support.type.arrow</string>
 				</dict>
 			</array>
 		</dict>
