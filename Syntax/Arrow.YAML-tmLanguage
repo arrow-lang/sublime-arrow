@@ -48,6 +48,8 @@ patterns:
   name: entity.name.type.struct.arrow
 - match: \b(struct)\b
   name: storage.type.struct.arrow
+- match: \b(self)\b
+  name: variable.language.arrow
 - match: (?<=(enum ))([_A-Za-z][_A-Za-z0-9]*)
   name: entity.name.type.enum.arrow
 - match: \b(enum)\b
@@ -58,6 +60,8 @@ patterns:
   name: storage.type.trait.arrow
 - match: \b(def)\b
   name: storage.type.function.arrow
+- match: ([_A-Za-z][_A-Za-z0-9]*)(?=\:)
+  name: variable.parameter.function.arrow
 - include: '#numeric'
 - include: '#operators'
 - include: '#comments'
@@ -89,7 +93,6 @@ repository:
                macro|
                loop|
                global|
-               self|
                super|
                for|
                continue|

@@ -144,6 +144,12 @@
 		</dict>
 		<dict>
 			<key>match</key>
+			<string>\b(self)\b</string>
+			<key>name</key>
+			<string>variable.language.arrow</string>
+		</dict>
+		<dict>
+			<key>match</key>
 			<string>(?&lt;=(enum ))([_A-Za-z][_A-Za-z0-9]*)</string>
 			<key>name</key>
 			<string>entity.name.type.enum.arrow</string>
@@ -171,6 +177,12 @@
 			<string>\b(def)\b</string>
 			<key>name</key>
 			<string>storage.type.function.arrow</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>([_A-Za-z][_A-Za-z0-9]*)(?=\:)</string>
+			<key>name</key>
+			<string>variable.parameter.function.arrow</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -234,7 +246,6 @@
        macro|
        loop|
        global|
-       self|
        super|
        for|
        continue|
