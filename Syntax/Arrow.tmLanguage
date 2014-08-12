@@ -40,6 +40,34 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
+					<string>entity.name.function.arrow</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(?&lt;=(?:let\s))([_A-Za-z][_A-Za-z0-9]*)(?=(\(.*\))?(\:.*)?\s*\-\&gt;)</string>
+			<key>name</key>
+			<string>function.arrow</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function.arrow</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(?&lt;=^|\{)\s*([_A-Za-z][_A-Za-z0-9]*)(?=(\(.*\))?(\:.*)?\s*\-\&gt;)</string>
+			<key>name</key>
+			<string>function.arrow</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
 					<string>support.function.any-method.arrow</string>
 				</dict>
 			</dict>
@@ -230,6 +258,7 @@
        do|
        foreign|
        as|
+       extern|
        and|
        or|
        not|
@@ -276,9 +305,10 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>(?x)\b((0[bB][0-1]+)|(0[oO][0-7]+)|
-       (0[xX][A-Fa-f0-9]+)|([0-9]+\.[0-9]+([Ee][-+]?[0-9]+)?)|
-       ([0-9]+([Ee][-+]?[0-9]+)?)|([0-9]+))\b
+					<string>(?x)\b((0[bB]([0-1]|_)+)|(0[oO]([0-7]|_)+)|
+       (0[xX]([A-Fa-f0-9]|_)+)|
+       (([0-9]|_)+\.([0-9]|_)+([Ee][-+]?([0-9]|_)+)?)|
+       (([0-9]|_)+([Ee][-+]?([0-9]|_)+)?)|(([0-9]|_)+))\b
 </string>
 					<key>name</key>
 					<string>constant.numeric.arrow</string>

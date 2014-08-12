@@ -12,6 +12,16 @@ patterns:
   name: function.arrow
 - captures:
     '1':
+      name: entity.name.function.arrow
+  match: (?<=(?:let\s))([_A-Za-z][_A-Za-z0-9]*)(?=(\(.*\))?(\:.*)?\s*\-\>)
+  name: function.arrow
+- captures:
+    '1':
+      name: entity.name.function.arrow
+  match: (?<=^|\{)\s*([_A-Za-z][_A-Za-z0-9]*)(?=(\(.*\))?(\:.*)?\s*\-\>)
+  name: function.arrow
+- captures:
+    '1':
       name: support.function.any-method.arrow
   match: (?<=(?:do ))([_A-Za-z][_A-Za-z0-9]*)
   name: function-call.arrow
@@ -77,6 +87,7 @@ repository:
                do|
                foreign|
                as|
+               extern|
                and|
                or|
                not|
@@ -118,9 +129,10 @@ repository:
   numeric:
     patterns:
     - match: >
-        (?x)\b((0[bB][0-1]+)|(0[oO][0-7]+)|
-               (0[xX][A-Fa-f0-9]+)|([0-9]+\.[0-9]+([Ee][-+]?[0-9]+)?)|
-               ([0-9]+([Ee][-+]?[0-9]+)?)|([0-9]+))\b
+        (?x)\b((0[bB]([0-1]|_)+)|(0[oO]([0-7]|_)+)|
+               (0[xX]([A-Fa-f0-9]|_)+)|
+               (([0-9]|_)+\.([0-9]|_)+([Ee][-+]?([0-9]|_)+)?)|
+               (([0-9]|_)+([Ee][-+]?([0-9]|_)+)?)|(([0-9]|_)+))\b
       name: 'constant.numeric.arrow'
   operators:
     patterns:
